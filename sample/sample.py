@@ -20,7 +20,12 @@ class Sample:
         return self.__str__()
 
     def resample(self) -> None:
-        self.rolls = [Sample.pick_diff(i, self.faces) for i in self.rolls]
+        """
+        randomly change each roll to a different roll
+        :return: None
+        """
+        self.rolls = [Sample.pick_diff(i, self.faces)
+                      for i in self.rolls]
 
     @staticmethod
     def pick_diff(i: int, lis: List[int]) -> int:
@@ -35,7 +40,8 @@ class Sample:
         return ''.join(str(i) for i in l)
 
     def accessible_rolls(self) -> List[Tuple[Any, ...]]:
-        cs = [[j for j in self.faces if j != roll] for roll in self.rolls]
+        cs = [[j for j in self.faces if j != roll]
+              for roll in self.rolls]
         return list(itertools.product(*cs))
 
     @staticmethod
@@ -45,4 +51,5 @@ class Sample:
         return [Sample(list(r)) for r in cart_product]
 
     def get_edges(self):
-        return [(Sample.list_as_str(self.rolls), Sample.list_as_str(i)) for i in self.accessible_rolls()]
+        return [(Sample.list_as_str(self.rolls),
+                 Sample.list_as_str(i)) for i in self.accessible_rolls()]

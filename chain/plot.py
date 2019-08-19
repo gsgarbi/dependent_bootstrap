@@ -5,7 +5,6 @@ import logging
 from sample.sample import Sample as S
 logging.basicConfig(level=logging.WARNING)
 from pathlib import Path
-import csv
 
 import sys
 
