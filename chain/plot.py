@@ -44,5 +44,5 @@ fn = PROJECT_FOLDER.joinpath(TARGET_FOLDER)
 fn.mkdir(exist_ok=True)
 path: str = '/'.join([fn.as_posix(), FILE_NAME])
 
-if not Path(fn).exists():
+if not Path(path).exists():
     plt.savefig(fname=path)

@@ -1,2 +1,3 @@
-log/
 deliverables/
+**/__init__.py
+/convergence

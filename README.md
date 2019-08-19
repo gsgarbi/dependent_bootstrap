@@ -1,1 +1,1 @@
-# dependent_bootstrap
+# Studying new method of bootstraping

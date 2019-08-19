@@ -10,7 +10,6 @@ class Sample:
         self.faces = list(range(1, self.size + 1))
 
     @classmethod
-    # run __init__ with rolls = random.choices(range(1, size + 1), k=size)
     def random(cls, size=3):
         return cls(random.choices(range(1, size + 1), k=size))
 
@@ -25,8 +24,7 @@ class Sample:
 
     @staticmethod
     def pick_diff(i: int, lis: List[int]) -> int:
-        compl = [j for j in lis if j != i]
-        return random.choice(compl)
+        return random.choice([j for j in lis if j != i])
 
     def set_values(self, values):
         assert len(values) == self.size
@@ -37,18 +35,14 @@ class Sample:
         return ''.join(str(i) for i in l)
 
     def accessible_rolls(self) -> List[Tuple[Any, ...]]:
-        cs = []
-        for roll in self.rolls:
-            compl = [j for j in self.faces if j != roll]
-            cs.append(compl)
+        cs = [[j for j in self.faces if j != roll] for roll in self.rolls]
         return list(itertools.product(*cs))
 
     @staticmethod
     def sample_space(size):
-        space = list(range(1, size + 1))
-        cart_product = itertools.product(space, repeat=size)
+        cart_product = itertools.product(list(range(1, size + 1)),
+                                         repeat=size)
         return [Sample(list(r)) for r in cart_product]
 
     def get_edges(self):
         return [(Sample.list_as_str(self.rolls), Sample.list_as_str(i)) for i in self.accessible_rolls()]
-
