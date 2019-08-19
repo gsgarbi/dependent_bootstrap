@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="589d716b-393a-40b2-919c-efe20f40636e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/chain/plot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/sample.py" beforeDir="false" afterPath="$PROJECT_DIR$/sample/sample.py" afterDir="false" />
-    </list>
+    <list default="true" id="589d716b-393a-40b2-919c-efe20f40636e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +232,7 @@
       <workItem from="1566158256874" duration="551000" />
       <workItem from="1566233352106" duration="4717000" />
       <workItem from="1566238509257" duration="4148000" />
-      <workItem from="1566244955826" duration="916000" />
+      <workItem from="1566244955826" duration="1330000" />
     </task>
     <servers />
   </component>
