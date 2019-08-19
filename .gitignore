@@ -7,3 +7,7 @@ convergence/
 *.__pycache__/
 
 deliverables/
+
+*._*
+
+*.pyc
