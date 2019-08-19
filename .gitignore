@@ -4,4 +4,10 @@ convergence/
 
 *.DS_Store
 
-__pycache__/
+*.__pycache__/
+
+deliverables/
+
+git add .
+git commit -m 'add ignored files'
+git push
