@@ -15,7 +15,6 @@ logger.setLevel(logging.CRITICAL)
 
 
 def simulate():
-
     # read size
     try:
         size = int(sys.argv[1])
