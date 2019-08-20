@@ -1,12 +1,12 @@
 # credits to https://stackoverflow.com/users/1222578/marius for basic code
+import sys
+from pathlib import Path
 import networkx as nx
 import matplotlib.pyplot as plt
 import logging
 from sample.sample import Sample as S
 logging.basicConfig(level=logging.WARNING)
-from pathlib import Path
 
-import sys
 
 if not sys.warnoptions:
     import warnings

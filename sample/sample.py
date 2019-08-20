@@ -2,6 +2,7 @@ import random
 from typing import List, Tuple, Any
 import itertools
 
+
 class Sample:
     def __init__(self, rolls: List[int]):
         assert all([r <= len(rolls) for r in rolls])
@@ -34,7 +35,7 @@ class Sample:
     def set_values(self, values):
         assert len(values) == self.size
         self.rolls: List[int] = values
-    
+
     @staticmethod
     def list_as_str(l) -> str:
         return ''.join(str(i) for i in l)

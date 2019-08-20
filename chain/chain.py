@@ -7,6 +7,7 @@ import datetime as dt
 logger = logging.getLogger(__file__)
 logger.setLevel(logging.WARNING)
 
+
 class Chain:
 
     def __init__(self, initial_sample: Sample):

@@ -1,10 +1,10 @@
 import logging
 import sys
 from pathlib import Path
-from chain import Chain, plot
+from chain import Chain
 from sample import Sample
-from convergence import proportion
 
+# create folders
 PROJECT_FOLDER = Path(__file__).parent
 TARGET_FOLDER = 'deliverables'
 fn = PROJECT_FOLDER.joinpath(TARGET_FOLDER)
@@ -28,7 +28,7 @@ def simulate():
 
     chain = Chain(initial_sample)
     chain.create_path()
-    logger.debug('chain type {}\nSimulated Chain: {}'.format(chain, type(chain.samples[0].rolls)))
+    logger.debug('chain type {}\nSimulated Chain: {}'.format(
+        chain, type(chain.samples[0].rolls)))
     chain.save()
     logger.info(chain)
-
