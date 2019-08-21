@@ -2,7 +2,6 @@ import csv
 from config import DELIVERABLES_PATH
 import pathlib as pl
 from typing import List
-from matplotlib import pyplot as plt
 
 def setup(file_path):
     parent = file_path.parent
@@ -24,12 +23,3 @@ def read_data(rel_path) -> List[list]:
         reader = csv.reader(rel_path)
         data = reader
     return data
-
-def plot_chain(samples: List[list]):
-    pass
-
-
-
-# if __name__ == '__main__':
-#     name = 'save3/here/sddwklksdflswq/{}'.format(REF_TIME)
-#     save_chain([[1, 2], [2, 3]], name)

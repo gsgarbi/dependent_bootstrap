@@ -1,11 +1,9 @@
 import logging
 import sys
 from pathlib import Path
+
 from chain import Chain, plot
 from sample import Sample
-
-# create folders
-from utils.path_tools import plot_chain
 
 PROJECT_FOLDER = Path(__file__).parent
 TARGET_FOLDER = 'deliverables'

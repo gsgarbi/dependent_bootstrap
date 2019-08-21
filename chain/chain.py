@@ -1,10 +1,8 @@
-from sample.sample import Sample
-from config import REF_TIME
-from pathlib import Path
-from utils.path_tools import save_chain
-import csv
 import logging
-import datetime as dt
+
+from config import REF_TIME
+from sample.sample import Sample
+from utils.path_tools import save_chain
 
 logger = logging.getLogger(__file__)
 logger.setLevel(logging.WARNING)
