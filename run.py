@@ -1,10 +1,12 @@
 import logging
 import sys
 from pathlib import Path
-from chain import Chain
+from chain import Chain, plot
 from sample import Sample
 
 # create folders
+from utils.path_tools import plot_chain
+
 PROJECT_FOLDER = Path(__file__).parent
 TARGET_FOLDER = 'deliverables'
 fn = PROJECT_FOLDER.joinpath(TARGET_FOLDER)
@@ -31,3 +33,4 @@ def simulate():
         chain, type(chain.samples[0].rolls)))
     chain.save()
     logger.info(chain)
+    plot.chain()
