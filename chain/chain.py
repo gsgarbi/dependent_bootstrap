@@ -1,5 +1,7 @@
 from sample.sample import Sample
+from config import REF_TIME
 from pathlib import Path
+from utils.path_tools import save_here
 import csv
 import logging
 import datetime as dt
@@ -23,24 +25,26 @@ class Chain:
         self.samples.append(last_sample)
 
     def save(self):
+        rolls = [s.rolls for s in self.samples]
 
-        txt = """Next sample is obtained by changing the"
-        "values of all rolls"""
-        samples = self.samples
-        TARGET_FOLDER = 'deliverables'
-        FILE_NAME = 'mc_simulation_{}.csv'.format(dt.datetime.today())
-        PROJECT_FOLDER = Path(__file__).parent.parent
-        fn = PROJECT_FOLDER.joinpath(TARGET_FOLDER)
-        # TODO make create parent dirs
-        fn.mkdir(exist_ok=True)
-        path: str = '/'.join([fn.as_posix(), FILE_NAME])
-        number_faces = Sample(self.samples[-1].rolls)
+        save_here(rolls, REF_TIME)
 
-        spl_rolls = [s.rolls for s in samples]
-
-        with open(path, 'w') as f:
-            writer = csv.writer(f)
-            writer.writerows(spl_rolls)
+        # txt = """Next sample is obtained by changing the"
+        # "values of all rolls"""
+        # samples = self.samples
+        # TARGET_FOLDER = 'deliverables'
+        # FILE_NAME = 'mc_simulation_{}.csv'.format(dt.datetime.today())
+        # PROJECT_FOLDER = Path(__file__).parent.parent
+        # fn = PROJECT_FOLDER.joinpath(TARGET_FOLDER)
+        # # TODO make create parent dirs
+        # fn.mkdir(exist_ok=True)
+        # path: str = '/'.join([fn.as_posix(), FILE_NAME])
+        #
+        # spl_rolls = [s.rolls for s in samples]
+        #
+        # with open(path, 'w') as f:
+        #     writer = csv.writer(f)
+        #     writer.writerows(spl_rolls)
 
     def __str__(self):
         result = str(self.samples[0])

@@ -23,7 +23,7 @@ def simulate():
         initial_sample = Sample.random(size)
     except IndexError:
         initial_sample = Sample.random()
-        # logger.warning("No size given. Use size={}".format(initial_sample.size))
+        logger.warning("No size given. Using size = {}".format(initial_sample.size))
 
     chain = Chain(initial_sample)
     chain.create_path()

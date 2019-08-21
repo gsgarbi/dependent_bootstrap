@@ -6,6 +6,7 @@ https://github.com/pypa/sampleproject
 """
 
 # Always prefer setuptools over distutils
+import sys
 from setuptools import setup, find_packages
 from os import path
 
@@ -30,7 +31,7 @@ setup(
     # There are some restrictions on what makes a valid project name
     # specification here:
     # https://packaging.python.org/specifications/core-metadata/#name
-    name='sampleproject',  # Required
+    name='dependent_bootstrap',  # Required
 
     # You can just specify package directories manually here if your project is
     # simple. Or you can use find_packages().
@@ -48,7 +49,7 @@ setup(
     # and refuse to install the project if the version does not match. If you
     # do not support Python 2, you can simplify this to '>=3.5' or similar, see
     # https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
-    python_requires='>=3',
+    python_requires='>=3.7.3',
 
 
 )

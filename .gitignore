@@ -8,6 +8,6 @@ convergence/
 
 deliverables/
 
-*._*
-
 *.pyc
+
+data/
