@@ -1,4 +1,3 @@
-import math
 from typing import List
 
 import numpy as np
@@ -30,5 +29,5 @@ for s in SAMPLE_SPACE:
 
 # dist as defined below will be the invariant distribution
 dist = np.ones(shape=len(SAMPLE_SPACE)) / len(SAMPLE_SPACE)
-assert math.isclose(sum(dist), 1)
+assert np.isclose(sum(dist), 1)
 assert np.allclose(np.dot(P, dist), dist)
