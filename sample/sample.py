@@ -1,6 +1,8 @@
+from __future__ import annotations
 import random
 from typing import List, Tuple, Any
 import itertools
+
 
 
 class Sample:
@@ -19,6 +21,9 @@ class Sample:
 
     def __repr__(self):
         return self.__str__()
+
+    def __eq__(self, other: Sample):
+        return self.rolls == other.rolls
 
     def resample(self) -> None:
         """
@@ -40,17 +45,25 @@ class Sample:
     def list_as_str(l) -> str:
         return ''.join(str(i) for i in l)
 
-    def accessible_rolls(self) -> List[Tuple[Any, ...]]:
-        cs = [[j for j in self.faces if j != roll]
-              for roll in self.rolls]
-        return list(itertools.product(*cs))
+    def accessible_states(self) -> List[Sample]:
+        acc_r = []
+
+        for s in Sample.sample_space(self.size):
+            i = 0
+            for i in range(self.size):
+                if s.rolls[i] == self.rolls[i]:
+                    break
+            else:
+                acc_r.append(s)
+
+        return acc_r
 
     @staticmethod
-    def sample_space(size):
+    def sample_space(size) -> List[Sample]:
         cart_product = itertools.product(list(range(1, size + 1)),
                                          repeat=size)
         return [Sample(list(r)) for r in cart_product]
 
     def get_edges(self):
         return [(Sample.list_as_str(self.rolls),
-                 Sample.list_as_str(i)) for i in self.accessible_rolls()]
+                 Sample.list_as_str(i)) for i in self.accessible_states()]

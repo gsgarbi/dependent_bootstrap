@@ -17,7 +17,7 @@ def chain():
     G = nx.Graph()
 
     # if want to plot all:
-    # use S.sample_space(sample_space_size)
+    # use S.SAMPLE_SPACE(sample_space_size)
     sample_example = S([1, 2, 3])
     DESIRED_SAMPLES = S([1, 2, 3]), S([2, 1, 2]), S([3, 3, 3]), S([1, 1, 1])
     # add edges to graph
