@@ -1,8 +1,7 @@
 from __future__ import annotations
 import random
-from typing import List, Tuple, Any
+from typing import List
 import itertools
-
 
 
 class Sample:
@@ -25,6 +24,18 @@ class Sample:
     def __eq__(self, other: Sample):
         return self.rolls == other.rolls
 
+    def __iter__(self):
+        self.pos = 0
+        return self
+
+    def __next__(self):
+        if self.pos < self.size:
+            result = self.rolls[self.pos]
+            self.pos += 1
+            return result
+        else:
+            raise StopIteration
+
     def resample(self) -> None:
         """
         randomly change each roll to a different roll
@@ -45,17 +56,14 @@ class Sample:
     def list_as_str(l) -> str:
         return ''.join(str(i) for i in l)
 
-    def accessible_states(self) -> List[Sample]:
+    def acc_states(self) -> List[Sample]:
         acc_r = []
-
         for s in Sample.sample_space(self.size):
-            i = 0
             for i in range(self.size):
                 if s.rolls[i] == self.rolls[i]:
                     break
             else:
                 acc_r.append(s)
-
         return acc_r
 
     @staticmethod
@@ -66,4 +74,4 @@ class Sample:
 
     def get_edges(self):
         return [(Sample.list_as_str(self.rolls),
-                 Sample.list_as_str(i)) for i in self.accessible_states()]
+                 Sample.list_as_str(i)) for i in self.acc_states()]
