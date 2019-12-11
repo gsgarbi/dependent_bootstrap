@@ -25,6 +25,7 @@ def simulate():
         initial_sample = Sample.random()
         logger.warning("No size given. Using size = {}".format(initial_sample.size))
 
+    # creates chain
     chain = Chain(initial_sample)
     chain.create_path()
     logger.debug('chain type {}\nSimulated Chain: {}'.format(
